@@ -1,0 +1,7 @@
+> manifest.json -  is a JSON file that tells the browser about your Progressive Web App and how it should behave when installed on the user's desktop or mobile device.
+
+> "display": "standalone" - Hide URL Bar on Browser
+
+> specify theme color inside html
+
+> specify apple touch icon
