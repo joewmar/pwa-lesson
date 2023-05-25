@@ -5,3 +5,57 @@
 > specify theme color inside html
 
 > specify apple touch icon
+
+> https://developer.chrome.com/blog/app-install-banners-native/
+
+> Service Worker - the last step of Application Installable
+
+> sw.js
+
+> Trigger action when service worker are installed
+self.addEventListener("install", e =>{
+    console.log("Install!")
+});
+
+
+> Inspect -> Application -> Service Worker -> Part if Status
+
+> Caching Resources (CSS, IMAGES, HTML FILES)
+self.addEventListener("install", e =>{
+    //Caching Resources (CSS, IMAGES, HTML FILES)
+
+    e.waitUntil(
+        caches.open("static").then(cache => {
+            return cache.addAll(["./", "./src/master.css", "./images/logo192.png"]);
+        }) 
+    );
+});
+
+> Inspect -> Application -> Service Worker -> Part if Status to check
+
+> Inspect -> Application -> Cache Storage -> static - url.com
+
+> Run when fetch Request
+self.addEventListener("fetch", e =>{
+    console.log("ServiceWorker not support of your application");
+});
+
+> the application can now be install because of fetch request in service worker
+
+> to check if match the caches resource to fetch request
+    e.respondWith(
+        caches.match(e.request).then(response =>{
+            
+        })
+    );
+
+> when we found response of this case "caches.open("static")" then return response 
+that no need to go back to network. otherwise if this undefined fall back to the network.
+
+> Inspect -> Network -> Check the resource 
+
+> No throttling to offline
+
+> Inspect -> Network -> Check the resource ("pwa/" and "master.css") because it store on cache storage
+
+> Let's install application
